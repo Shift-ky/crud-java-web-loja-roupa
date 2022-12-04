@@ -1,34 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.dao;
-
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
  *
- * @author famil
+ * @author robsonPaiva
  */
 public class Connecao {
-    Connection connection;
     
-    public Connecao(){
-        
+  Connection conexao;
+
+public Connection getConexao(){
+    try {
+        conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/loja_roupa", "root", "");
+       
+    } catch (SQLException e) {
+        System.out.println(e);
     }
-    
-    public Connection getConnection(){
-        connection = null;
-        try {
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loja_roupa","root", "");
-        } catch (SQLException e) {
-            System.out.println("ConexãoDao" + e);
-        }
-        
-        
-        return connection;
-    }
-    
+        return conexao;
+    }  
 }
