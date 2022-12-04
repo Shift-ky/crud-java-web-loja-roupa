@@ -5,8 +5,11 @@
 
 ## Technology
 * HTML5
-* CSS
-* javaScript
+* CSS3
+* java
+* Bootstrap5
+* Netbeans
+* Visual Studio Code
 
 ## Service used
 * Github
