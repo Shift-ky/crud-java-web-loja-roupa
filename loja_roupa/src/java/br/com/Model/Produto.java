@@ -8,7 +8,7 @@ package br.com.Model;
  *
  * @author famil
  */
-public class UsuarioAdm {
+public class Produto {
     
     private int id;
     private String login;

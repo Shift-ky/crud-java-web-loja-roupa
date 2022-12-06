@@ -8,22 +8,22 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import br.com.Model.UsuarioAdm;
+import br.com.Model.Produto;
 /**
  *
  * @author famil
  */
-public class UsuarioAdmDao {
+public class ProdutoDao {
     Connection conexao;
     //ResultSet rs;
     PreparedStatement pstm;
     //ArrayList<Cliente> clientes = new ArrayList<>();
     
-    public UsuarioAdmDao(){
+    public ProdutoDao(){
         conexao = new ConnectionFactory().getConexao();
     }
     
-    public void cadastraAdm(UsuarioAdm adm){
+    public void cadastraAdm(Produto adm){
         String sql = "INSERT INTO usuarioadm(login, senha) VALUES (?,?)";
         
         try {
