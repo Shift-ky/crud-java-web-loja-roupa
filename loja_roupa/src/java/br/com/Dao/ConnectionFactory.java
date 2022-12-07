@@ -6,6 +6,7 @@ package br.com.Dao;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,7 +18,8 @@ public class ConnectionFactory {
     public Connection getConexao(){
         try {
             conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/loja_roupa", "root", "");
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println(e);
         }
         return conexao;
     }

@@ -11,8 +11,10 @@ package br.com.Model;
 public class Produto {
     
     private int id;
-    private String login;
-    private String senha;
+    private String nome;
+    private String cor;
+    private String tamanho;
+    private double preco;
 
     public int getId() {
         return id;
@@ -22,20 +24,36 @@ public class Produto {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getNome() {
+        return nome;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getCor() {
+        return cor;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
     
     
