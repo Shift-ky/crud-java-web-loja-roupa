@@ -22,6 +22,8 @@
             produto.setPreco(Double.parseDouble(request.getParameter("preco")));
             produto.setTamanho(request.getParameter("tamanho"));
             
+            ProdutoDao objProduto = new ProdutoDao();
+            objProduto.cadastraProduto(produto);
            
         %>
     </body>

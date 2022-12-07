@@ -16,12 +16,16 @@ public class ConnectionFactory {
     Connection conexao;
     
     public Connection getConexao(){
+         String url = "jdbc:mysql://localhost:3306/loja_roupa?user=root&password=";
         try {
-            conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/loja_roupa", "root", "");
+           conexao = (Connection) DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e);
         }
+        
         return conexao;
     }
     
 }
+    
+    

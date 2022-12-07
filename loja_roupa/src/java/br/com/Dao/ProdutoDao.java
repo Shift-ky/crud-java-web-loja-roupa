@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import br.com.Model.Produto;
 import com.sun.source.tree.TryTree;
+import javax.swing.JOptionPane;
 /**
  *
  * @author famil
@@ -22,14 +23,23 @@ public class ProdutoDao {
          conexao = new ConnectionFactory().getConexao();
     }
     
-    public void create(Produto produto){
-        String sql = "INSERT INTO PRODUTO(nome,cor,tamanho,preco) value(?,?,?,?)";
-     
+   public void cadastraProduto(Produto produto) {
+        String sql = "insert into produto(nome, tamanho, cor, valor) values(?,?,?,?)";
         try {
+
             pstm = conexao.prepareStatement(sql);
-            
-        } catch (Exception e) {
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getTamanho());
+            pstm.setString(3, produto.getCor());
+            pstm.setDouble(4, produto.getPreco());
+
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            System.out.println(e);
         }
+
     }
+
     
 }
