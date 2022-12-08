@@ -90,7 +90,7 @@ public class ProdutoDao {
     public Produto getRegistroById(int id){
          Produto produto = null;
        
-        String sql = "select * from livro where id=?";
+        String sql = "select * from produto where id=?";
         try {
      
             pstm = conexao.prepareStatement(sql);

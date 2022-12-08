@@ -1,3 +1,4 @@
+<%@page import="br.com.Dao.ProdutoDao, br.com.Model.Produto"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -270,29 +271,35 @@ html {
   
 </head>
 <body>
-
+    <%
+            String id = request.getParameter("id");
+           ProdutoDao objProduto = new ProdutoDao();
+           
+           Produto produto = objProduto.getRegistroById(Integer.parseInt(request.getParameter("id")));
+        %>
+        
     <div class="login-box">
         <h2>ATUALZAR DADOS</h2>
-        <form action="#" method="post">
+        <form action="Update.jsp" method="get">
           <div class="box-usuario">
-            <input type="hidden" name="id" required>          
+            <input type="hidden" name="id" value="<%=produto.getId()%>">          
           <div class="box-usuario">
-            <input type="text" name="nome" required>
+            <input type="text" name="nome" value="<%=produto.getNome()%>">
             <label>NOME</label>
           </div>
           <br>
           <div class="box-usuario">
-            <input type="text" name="cor" required>
+            <input type="text" name="cor" value="<%=produto.getCor()%>">
             <label>COR</label>
           </div>
           <br>
           <div class="box-usuario">
-            <input type="text" name="tamanho" required>
+            <input type="text" name="tamanho" value="<%=produto.getTamanho()%>">
             <label>TAMANHO</label>
           </div>
           <br>
               <div class="box-usuario">
-            <input type="text" name="preco" required>
+            <input type="text" name="preco" value="<%=produto.getPreco()%>">
             <label>PREÇO</label>
           </div>
           <br>

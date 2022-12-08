@@ -318,6 +318,7 @@ html {
             <th scope="col">TAMANHO</th>
             <th scope="col">PREÇO</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -328,7 +329,8 @@ html {
             <td>${produto.getCor()}</td>
             <td>${produto.getTamanho()}</td>
             <td>${produto.getPreco()}</td>
-            <td> <a href="Editar.jsp?id=${produto.getId()}">EDITAR</a>  <a href="#">EXCLUIR</a> </td>
+            <td align="right > <a href="Editar.jsp?id=${produto.getId()}">EDITAR</a></td>
+            <td>  <a href="#">EXCLUIR</a> </td>
           </tr>
           </c:forEach>
         </tbody>
