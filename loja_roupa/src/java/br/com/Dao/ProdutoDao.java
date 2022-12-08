@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 public class ProdutoDao {
     Connection conexao;
     PreparedStatement pstm;
+    ResultSet result;
+    ArrayList<Produto> listaProduto = new ArrayList<>();
     
     public ProdutoDao(){
          conexao = new ConnectionFactory().getConexao();
@@ -40,6 +42,82 @@ public class ProdutoDao {
         }
 
     }
+   
+   public ArrayList<Produto> readyProduto() {
+
+        String sql = "select * from produto";
+
+        try {
+            pstm = conexao.prepareStatement(sql);
+            result = pstm.executeQuery();
+
+            while (result.next()) {
+                Produto produto = new Produto();
+                produto.setId(result.getInt("id"));
+                produto.setNome(result.getString("nome"));
+                produto.setCor(result.getString("cor"));
+                produto.setTamanho(result.getString("tamanho"));
+                produto.setPreco(result.getDouble("valor"));
+
+                listaProduto.add(produto);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        return listaProduto;
+    }
+   
+   public void updateProduto(Produto produto) {
+        String sql = "update produto set nome = ?, tamanho =?, cor = ?, valor= ? where id = ?";
+        
+        try {
+            pstm = conexao.prepareStatement(sql);
+            
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getTamanho());
+            pstm.setString(3, produto.getCor());
+            pstm.setDouble(4, produto.getPreco());
+            pstm.setInt(5, produto.getId());
+            pstm.execute();
+            pstm.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Update Produto" + e);
+        }
+    }
+   
+    public Produto getRegistroById(int id){
+         Produto produto = null;
+       
+        String sql = "select * from livro where id=?";
+        try {
+     
+            pstm = conexao.prepareStatement(sql);
+            
+            pstm.setInt(1, id);
+            result = pstm.executeQuery();
+ 
+            
+            while(result.next()){
+                produto = new Produto();
+                
+                produto.setId(result.getInt("id"));
+                produto.setNome(result.getString("nome"));
+                produto.setTamanho(result.getString("tamanho"));
+                produto.setCor(result.getString("cor"));
+                produto.setPreco(result.getDouble("valor"));
+                
+                
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+ 
+        }
+        return produto;
+    }
+
+    
 
     
 }
