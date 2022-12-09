@@ -116,6 +116,19 @@ public class ProdutoDao {
         }
         return produto;
     }
+    
+    public void excluirProduto(Produto produto) {
+        String sql = "delete from produto where id =?";
+        try {
+              pstm = conexao.prepareStatement(sql);
+              pstm.setInt(1, produto.getId());
+              pstm.execute();
+              pstm.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
 
     
 

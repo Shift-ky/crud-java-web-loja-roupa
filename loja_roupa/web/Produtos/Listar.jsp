@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Listar.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
         @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css);
@@ -277,6 +278,24 @@ html {
     border-right: 1px solid white;
 
 }
+.tabela table tr td a #deletar{
+  color: red;
+
+}
+.fa-trash{
+  color: #F2C288;
+
+}
+.fa-trash:hover{
+  color: red;
+}
+.fa-edit{
+  color:#F2C288;
+}
+.fa-edit:hover{
+  color: green;
+  
+}
 
   
     
@@ -317,8 +336,8 @@ html {
             <th scope="col">COR</th>
             <th scope="col">TAMANHO</th>
             <th scope="col">PREÇO</th>
-            <th></th>
-            <th></th>
+            <th>EDITAR</th>
+            <th>DELETAR</th>
           </tr>
         </thead>
         <tbody>
@@ -329,8 +348,9 @@ html {
             <td>${produto.getCor()}</td>
             <td>${produto.getTamanho()}</td>
             <td>${produto.getPreco()}</td>
-            <td align="right > <a href="Editar.jsp?id=${produto.getId()}">EDITAR</a></td>
-            <td>  <a href="#">EXCLUIR</a> </td>
+
+            <td  align="center"><a href="Editar.jsp?id=${produto.getId()}"><i class='fa fa-edit'></i></a></td>
+            <td align="center"><a href="Delete.jsp?id=${produto.getId()}"><i class="fa fa-trash"></i> </a> </td>
           </tr>
           </c:forEach>
         </tbody>
